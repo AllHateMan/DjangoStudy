@@ -1,13 +1,11 @@
-
+{% extends 'main/base.html' %}
 {% load static %}
 
-    {% block title %}
-    <title>Пивоварня</title>
-    {% endblock %}
-
-    <!-- Контент на странице -->
     {% block content %}
-    <h1 class="mt-5 pt-5"><strong>Пивоварня "###"</strong></h1>
+    <div class="mt-5 pt-5 bg-info-subtle">
+        <h1>{{ content }}</h1>
+        <p class="about">{{ text_on_page }}</p>
+    </div>
     {% endblock content %}
 
     {% block footer %}
@@ -15,4 +13,3 @@
             <p class="m-0 text-center text-white">Copyright &copy; Пивоварня "###" 2025</p>
         </div>
     {% endblock %}
-                
