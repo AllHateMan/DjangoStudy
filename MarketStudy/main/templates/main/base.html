@@ -13,7 +13,7 @@
     <link rel="stylesheet" href={% static 'deps/css/my_footer_css.css' %}>
     <!-- Favicons for different platforms -->
     <link rel="apple-touch-icon" sizes="180x180" href={% static 'deps/favicon/apple-touch-icon.png' %}>
-    <link rel="icon" type="image/png" sizes="32x32" href=<i class="fa-solid fa-beer-mug-empty">
+    <link rel="icon" type="image/png" sizes="32x32" href={% static 'deps/favicon/favicon-16x16.png' %}>
     <link rel="icon" type="image/png" sizes="16x16" href={% static 'deps/favicon/favicon-16x16.png' %}>
     <link rel="manifest" href={% static 'deps/favicon/site.webmanifest' %}>
     <title>{{ title }}</title>
@@ -57,7 +57,7 @@
                                 <li><a class="dropdown-item  text-white" href="carts/cart.html">Кошик</a></li>
                                 <li><a class="dropdown-item  text-white" href="users/profile.html">Особистий кабінет</a>
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="#">Адмін панель</a></li>
+                                <li><a class="dropdown-item  text-white" href="/admin/">Адмін панель</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -85,9 +85,9 @@
                         <i class="fa-solid fa-beer-mug-empty"></i> 
                     </button>
                     <ul class="dropdown-menu bg-dark" data-bs-theme="dark">
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Всі товари</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Пшеничне</a></li>
-                        <li><a class="dropdown-item text-white" href="goods/catalog.html">Крафтове</a></li>
+                        {% for category in categories %}
+                        <li><a class="dropdown-item text-white" href={% url "catalog:index" %}>{{ category.name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <!-- Значек корзины, вызывает модальное окно -->
@@ -180,11 +180,10 @@
             </div>
         </div>
     </section>
-    <footer class="py-4 bg-dark">
-        {% block footer %}
-        
-        {% endblock footer %}
-    </footer>
+    
+    {% block footer %}
+    {% endblock footer %}
+    
     <script src={% static 'deps/js/jquery/jquery-3.7.0.min.js' %}></script>
     <script src={% static 'deps/js/jquery-events.js' %}></script>
     <script src={% static 'deps/js/jquery-ajax.js' %}></script>

@@ -37,14 +37,5 @@ body {
   font-size: 0.7rem;
 }
 
-.col-lg-10 {
-  color: rgb(0, 0, 0);
-  -webkit-text-stroke: 1px #040202;
-}
-
-p.about {
-  color: rgb(0, 0, 0);
-  -webkit-text-stroke: 0.1px #040202;
-}
 
 
