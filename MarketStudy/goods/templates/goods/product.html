@@ -1,7 +1,8 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load goods_tags %}
 
-{% block title %}Товар{% endblock title %}
+{% block title %}{{ title }}{% endblock title %}
 
 {% block content %}
 <div class="col-lg-10">
@@ -11,11 +12,11 @@
             <div class="row">
                 <!-- Миниатюры -->
                 <div class="col-md-4">
-                    <img src="../deps/images/goods/set of tea table and three chairs.jpg"
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}"
                         class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">
                 </div>
                 <div class="col-md-4 ">
-                    <p class="product_id mt-3">id: 002654</p>
+                    <p class="product_id mt-3">id: {{ product.display_id }}</p>
                 </div>
                 <!-- Увеличить изображение в модальном окне -->
                 <div class="modal fade" id="imageModal1" tabindex="-1"
@@ -28,7 +29,7 @@
                                     aria-label="Закрыть"></button>
                             </div>
                             <div class="modal-body">
-                                <img src="../deps/images/goods/set of tea table and three chairs.jpg"
+                                <img src="{{ product.image.url }}"
                                     class="img-fluid" alt="Изображение 1">
                             </div>
                         </div>
@@ -37,11 +38,18 @@
             </div>
             <!-- Описание товара -->
             <div class="card-body">
-                <p class="card-text">Цена: <strong>150.00 $</strong></p>
-                <h5 class="card-title">Чайный столик и три стула</h5>
-                <p class="card-text">Комплект из трёх стульев и дизайнерский столик для гостинной
-                    комнаты.</p>
-                <a href="#" class="btn btn-dark add-to-cart">Добавить в корзину</a>
+                <p class="card-text">Цена: <div class="price">
+                    {% if product.discount %}
+                    <p><s>{{ product.price }}</s> грн</p>
+                    <p><strong>{{ product.sell_price }} грн</strong></p>
+                    <span class="badge bg-warning text-dark">Знижка {{ product.discount }} %</span>
+                    {% else %}
+                    <p><strong>{{ product.price }} грн</strong></p>
+                    {% endif %}
+                </div></p>
+                <h5 class="card-title">{{ product.name}}</h5>
+                <p class="card-text">{{ product.description}}</p>
+                <a href="#" class="btn btn-dark add-to-cart">Добавити в кошик</a>
             </div>
         </div>
     </div>

@@ -50,7 +50,7 @@
             <div class="card border-primary rounded custom-shadow">
                 <img src={{ goods.image.url }} class="card-img-top" alt="{{ product.name}}">
                 <div class="card-body">
-                    <a href="../goods/product.html">
+                    <a href="{% url 'catalog:product' goods.slug %}">
                         <p class="card-title">{{ goods.name }}</p>
                     </a>
                     <p class="card-text text-truncate">{{ goods.description }}</p>
@@ -59,7 +59,7 @@
                         {% if goods.discount %}
                         <p><s>{{ goods.price }}</s> грн</p>
                         <p><strong>{{ goods.sell_price }} грн</strong></p>
-                        <span class="badge bg-warning text-dark">Скидка {{ goods.discount }} %</span>
+                        <span class="badge bg-warning text-dark">Знижка {{ goods.discount }} %</span>
                         {% else %}
                         
                         <p><strong>{{ goods.price }} грн</strong></p>
