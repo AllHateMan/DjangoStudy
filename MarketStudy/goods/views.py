@@ -6,12 +6,12 @@ from goods.models import Product
 
 def catalog(request):
 
-    producte = Product.objects.all()
+    goods = Product.objects.all()
 
     context = {
         'title': 'Каталог товарів',
         'content': 'Каталог товарів',
-        'product': producte
+        'product': goods
     }
 
     return render(request, 'goods/catalog.html', context);
