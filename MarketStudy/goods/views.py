@@ -1,12 +1,15 @@
 from multiprocessing import context
-from django.shortcuts import render
+from unicodedata import category
+from django.shortcuts import get_object_or_404, render
 
 from goods.models import Product
 
 
-def catalog(request):
-
-    goods = Product.objects.all()
+def catalog(request, category_slug):
+    if category_slug == 'all':
+        goods = Product.objects.all()
+    else :
+        goods = get_object_or_404 (Product.objects.filter(category__slug=category_slug))
 
     context = {
         'title': 'Каталог товарів',
