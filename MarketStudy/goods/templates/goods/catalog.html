@@ -47,13 +47,13 @@
         {% for goods in product %}
         <!-- Карта товара -->
         <div class="col-lg-4 col-md-6 p-4">
-            <div class="card border-primary rounded custom-shadow">
+            <div class="card rounded">
                 <img src={{ goods.image.url }} class="card-img-top" alt="{{ product.name}}">
-                <div class="card-body">
+                <div class="description card-body">
                     <a href="{% url 'catalog:product' goods.slug %}">
-                        <p class="card-title">{{ goods.name }}</p>
+                        <p class="card-title">{{ goods.name|truncatechars:20 }}</p>
                     </a>
-                    <p class="card-text text-truncate">{{ goods.description }}</p>
+                    <p class="card-text">{{ goods.description|truncatechars:35 }}</p>
                     <p class="product_id">id: {{ goods.display_id }}</p>
                     <div class="d-flex justify-content-between">
                         {% if goods.discount %}
@@ -78,14 +78,20 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center my-4">
             <div class="custom-shadow d-flex">
-                <li class="page-item disabled">
-                  <a class="page-link">Previous</a>
+                <li class="page-item {% if not product.has_previous %} disabled {% endif %}">
+                  <a class="page-link" href="{% if product.has_previous %}
+                  ?page={{product.previous_page_number}}
+                  {% else %} # {% endif %}">Назад</a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#">Next</a>
+                {% for page in product.paginator.page_range %}
+                {% if page >= product.number|add:-2 and page <= product.number|add:2 %}
+                <li class="page-item {% if product.number == page %}active{% endif %}"><a class="page-link" href="?page={{page}}">{{ page }}</a></li>
+                {% endif %}
+                {% endfor %}
+                <li class="page-item {% if not product.has_next %} disabled {% endif %}">
+                  <a class="page-link" href="{% if product.has_next %}
+                  ?page={{product.next_page_number}}
+                  {% else %} # {% endif %}">Вперед</a>
                 </li>
             </div>
         </ul>

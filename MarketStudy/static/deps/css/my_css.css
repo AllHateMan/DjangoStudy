@@ -37,5 +37,12 @@ body {
   font-size: 0.7rem;
 }
 
+.description.card-body {
+  background-color: rgb(33, 37, 41);
+  color: aliceblue
+}
 
-
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
