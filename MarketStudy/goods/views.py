@@ -1,5 +1,3 @@
-from multiprocessing import context
-from unicodedata import category
 from django.shortcuts import get_list_or_404, render
 from django.core.paginator import Paginator
 
