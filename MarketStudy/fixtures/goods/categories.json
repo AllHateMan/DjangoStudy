@@ -1,0 +1,50 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 5,
+        "fields": {
+            "name": "�� ����",
+            "slug": "all"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "Ale",
+            "slug": "ale"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 7,
+        "fields": {
+            "name": "�����",
+            "slug": "blanche"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 8,
+        "fields": {
+            "name": "�����",
+            "slug": "staut"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 9,
+        "fields": {
+            "name": "�����",
+            "slug": "svitle"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 10,
+        "fields": {
+            "name": "IPA",
+            "slug": "ipa"
+        }
+    }
+]

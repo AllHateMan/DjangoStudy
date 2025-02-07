@@ -66,8 +66,8 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="" aria-label="Пошук">
+                    <form class="d-flex" role="search" action='{% url "catalog:search" %}' method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="" aria-label="Пошук">
                         <button class="btn btn-outline-success text-white" type="submit">Пошук</button>
                     </form>
                 </div>
@@ -111,7 +111,7 @@
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <h3 class="text-center mb-4">Корзина</h3>
+                                <h3 class="text-center mb-4">Кошик</h3>
                                 <div class="container" id="cart-items-container">
                                     <!-- Разметка корзины -->
                                     <div class="card mb-3 text-bg-light shadow-lg">

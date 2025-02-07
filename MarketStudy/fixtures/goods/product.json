@@ -7,10 +7,10 @@
             "slug": "podilske-svitle",
             "description": "�����, �������� ���� � ���� Pale Ale, ��� �������� ������� �������.\r\n������ �� �'���� ������ � ������� �������.",
             "image": "products/svitle.jpg",
-            "price": "150.00",
+            "price": "300.00",
             "discount": "0.00",
             "quantity": 1,
-            "category": 5
+            "category": 6
         }
     },
     {
@@ -21,10 +21,10 @@
             "slug": "pshenichne-pole",
             "description": "Blanche �� �'���� ������ �� ������� ������� �������.\r\n����� ���������� �� �������� ����������� ��������� � ���������� �������� �����.",
             "image": "products/svitle_xaPFY6j.jpg",
-            "price": "150.00",
+            "price": "180.00",
             "discount": "0.00",
             "quantity": 1,
-            "category": 5
+            "category": 7
         }
     },
     {
@@ -35,10 +35,10 @@
             "slug": "ipa",
             "description": "��������� ��������� ���� ��� �� ��������� ��������� ������� ���������� �� �������� ������.",
             "image": "products/ipa.jpg",
-            "price": "150.00",
+            "price": "135.00",
             "discount": "0.00",
             "quantity": 1,
-            "category": 5
+            "category": 10
         }
     },
     {
@@ -49,10 +49,10 @@
             "slug": "milkstout",
             "description": "������ � ��������� �������� �����, ���� ����� �������� ������.\r\n��������� �� ����� ����� ����� ������������ �������� ���������.",
             "image": "products/ipa_TSPWhGR.jpg",
-            "price": "150.00",
+            "price": "200.00",
             "discount": "0.00",
             "quantity": 1,
-            "category": 5
+            "category": 8
         }
     },
     {
@@ -63,10 +63,10 @@
             "slug": "bounti-milkstout-coconut",
             "description": "�������� ����� �� �������� ����������.\r\n\r\n���������� �������� ������� �� �������� ������, �� ��������� ����������� ������, ������������ ���� �� ������ �������� ��������.",
             "image": "products/ale.jpg",
-            "price": "150.00",
+            "price": "130.00",
             "discount": "0.00",
             "quantity": 1,
-            "category": 5
+            "category": 8
         }
     },
     {
@@ -77,10 +77,10 @@
             "slug": "clover-clab-sour-ale",
             "description": "������ ��� �� ���������� ������, �� ������� �������� � ���������� ����.\r\n�� ���� �� ����� ��������, ������������ ��������� �������, �� ������ ����� ���, ���� �������� ����� ������ ��������� ����������.",
             "image": "products/ale_hQNqbPr.jpg",
-            "price": "150.00",
-            "discount": "0.00",
+            "price": "160.00",
+            "discount": "15.00",
             "quantity": 1,
-            "category": 5
+            "category": 6
         }
     },
     {
@@ -91,10 +91,10 @@
             "slug": "podilske",
             "description": "����� �����, � ������ ������ �� ��������, ��� ��������������� ������� �������� �������",
             "image": "products/pidyl.jpg",
-            "price": "150.00",
-            "discount": "0.00",
+            "price": "125.00",
+            "discount": "12.00",
             "quantity": 1,
-            "category": 5
+            "category": 9
         }
     }
 ]
