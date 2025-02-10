@@ -31,7 +31,7 @@ class Product(models.Model):
         ordering = ['id']
 
     def __str__(self):
-        return f'{self.name} Кількість: {self.quantity}'
+        return f'{self.name} Кількість: {self.quantity} if: {self.id}'
     
     def display_id(self):
         return f'{self.id:05}'
