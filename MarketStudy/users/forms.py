@@ -1,8 +1,26 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from users.models import User
 
 
+
+class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = (
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+            'password1',
+            'password2')
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    username = forms.CharField()
+    email = forms.EmailField()
+    password1 = forms.CharField()
+    password2 = forms.CharField()
+    
 
 class UserLoginForm(AuthenticationForm):
     

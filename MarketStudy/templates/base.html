@@ -45,25 +45,30 @@
                         <li class="nav-item">
                             <a class="nav-link  text-white" href="carts/cart.html">Кошик</a>
                         </li>
+                        {% if not user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link  text-white" href="{% url "user:login" %}">Увійти</a>
                         </li>
+                        {% else %}
                         <li class="nav-item dropdown ">
                             <a class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Мій профіль
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item  text-white" href="carts/cart.html">Кошик</a></li>
-                                <li><a class="dropdown-item  text-white" href="{% url "user:profile" %}">Особистий кабінет</a>
-                                </li>
-                                <li><a class="dropdown-item  text-white" href="/admin/">Адмін панель</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item  text-white" href="#">Вийти</a></li>
-                            </ul>
-                        </li>
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Мій профіль
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item  text-white" href="carts/cart.html">Кошик</a></li>
+                            <li><a class="dropdown-item  text-white" href="{% url "user:profile" %}">Особистий кабінет</a>
+                            </li>
+                            {% if user.is_admin or user.is_staff %}
+                            <li><a class="dropdown-item  text-white" href="/admin/">Адмін панель</a></li>
+                            {% endif %}
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item  text-white" href="{% url "user:logout" %}">Вийти</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
                     </ul>
                     <form class="d-flex" role="search" action='{% url "catalog:search" %}' method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="" aria-label="Пошук">
