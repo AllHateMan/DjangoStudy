@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+{% load goods_tags %}
+{% load carts_tags %}
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
 
 {% block content %}
+{% users_carts request as carts %}
     <div class="row">
         <div class="container mt-5">
             <div class="row justify-content-center">

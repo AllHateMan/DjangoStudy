@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load carts_tags %}
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock modal_cart %}
     <!-- Контент на странице -->
-    {% block content %}
+{% block content %}
+{% users_carts request as carts %}
     <h1 class="mt-5 pt-5">{{ content }}</h1>
-    {% endblock content %}
+{% endblock content %}
 
-    {% block footer %}
+{% block footer %}
     <footer class="py-4 bg-dark">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Пивоварня "HOLY" 2025</p>
         </div>
     </footer>
-    {% endblock %}
+{% endblock %}

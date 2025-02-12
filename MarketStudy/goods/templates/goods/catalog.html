@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% load goods_tags %}
+{% load carts_tags %}
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock modal_cart %}
+
 
 {% block content %}
+{% users_carts request as carts %}
 <div class="col-lg-10">
     <!-- Контент на странице -->
     <div class="row">
@@ -95,7 +101,7 @@
                         
                         <p><strong>{{ goods.price }} грн</strong></p>
                         {% endif %}
-                        <a href="#" class="btn add-to-cart">
+                        <a href="{% url "cart:cart_add" goods.slug %}" class="btn add-to-cart">
                             <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
                                 width="32" height="32">
                         </a>
