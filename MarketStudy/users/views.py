@@ -76,3 +76,7 @@ def logout(request):
     auth.logout(request)
     messages.success(request, 'Ви вийшли з системи')
     return redirect(reverse('main:home'))
+
+
+def users_cart(request):
+    return render(request, 'users/users_cart.html')
