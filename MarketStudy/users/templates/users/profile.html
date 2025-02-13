@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <!-- Кошик -->
-                {% users_carts request as carts %}
+                {% user_cart request as carts %}
                 <div class="col-md-7">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
                         <h3 class="text-center mb-4">Кошик</h3>
@@ -87,11 +87,6 @@
                             {% include "includes/includet_cart.html" %}
                             <!-- Закінчилась розмітка кошика -->
                         </div>
-                        {% if carts %}
-                            <a class="btn btn-dark" href="#">
-                                Сформувати замовлення
-                            </a>
-                        {% endif %}
                     </div>
                 </div>
                 <!-- Оформлені замовлення -->

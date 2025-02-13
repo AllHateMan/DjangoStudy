@@ -6,7 +6,7 @@
 {% endblock modal_cart %}
     <!-- Контент на странице -->
 {% block content %}
-{% users_carts request as carts %}
+{% user_cart request as carts %}
     <h1 class="mt-5 pt-5">{{ content }}</h1>
 {% endblock content %}
 

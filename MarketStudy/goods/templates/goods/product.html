@@ -9,7 +9,7 @@
 {% endblock modal_cart %}
 
 {% block content %}
-{% users_carts request as carts %}
+{% user_cart request as carts %}
 <div class="col-lg-10">
     <!-- Контент на странице -->
     <div class="container mt-5">
@@ -54,7 +54,10 @@
                 </div></p>
                 <h5 class="card-title">{{ product.name}}</h5>
                 <p class="card-text">{{ product.description}}</p>
-                <a href="{% url "cart:cart_add" product.slug %}" class="btn btn-dark add-to-cart">Добавити в кошик</a>
+                <a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart"
+                        data-product-id="{{ goods.id }}">
+                        {% csrf_token %}
+                        Добавити в кошик</a>
             </div>
         </div>
     </div>

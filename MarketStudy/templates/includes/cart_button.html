@@ -1,7 +1,7 @@
 {% load static %}
 {% load carts_tags %}
 
-{% users_carts request as carts %}
+{% user_cart request as carts %}
 
 
 <!-- Значек корзины, вызывает модальное окно -->
@@ -29,11 +29,8 @@
                     {% include "includes/includet_cart.html" %}
                     <!-- Закончилась разметка корзины -->
                 </div>
-                {% if carts %}
-                <a class="btn btn-dark" href="#">
-                    Сформувати замовлення
-                </a>
-                {% endif %}
+                
+                
             </div>
         </div>
     </div>

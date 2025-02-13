@@ -6,7 +6,7 @@
 {% endblock modal_cart %}
 
 {% block content %}
-{% users_carts request as carts %}
+{% user_cart request as carts %}
     <div class="mt-5 pt-5 bg-info-subtle">
         <h1>{{ content }}</h1>
         <p class="about">{{ text_on_page }}</p>

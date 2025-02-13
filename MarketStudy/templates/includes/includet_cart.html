@@ -1,5 +1,6 @@
 {% load static %}
 
+{% csrf_token %}
 <div class="card mb-3 text-bg-light shadow-lg">
     {% for cart in carts %}
         <div class="card-header">
@@ -11,14 +12,22 @@
                     <div class="col p-0">
                         <div class="input-group">
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-dark btn-sm decrement"
-                                    data-cart-id="" data-cart-change-url="">-</button>
+                                <button type="button" 
+                                        class="btn btn-dark btn-sm decrement"
+                                        data-cart-id="{{ cart.id }}" 
+                                        data-cart-change-url="{% url 'carts:cart_change' %}">
+                                    -
+                                </button>
                             </span>
                             <input type="text" class="form-control number" value="{{ cart.quantity }}"
                                 readonly>
                             <span class="input-group-btn">
-                                <button type="button" class="btn btn-dark btn-sm increment"
-                                    data-cart-id="" data-cart-change-url="">+</button>
+                                <button type="button" 
+                                        class="btn btn-dark btn-sm increment"
+                                        data-cart-id="{{ cart.id }}" 
+                                        data-cart-change-url="{% url 'carts:cart_change' %}">
+                                    +
+                                </button>
                             </span>
                         </div>
                     </div>
@@ -27,8 +36,8 @@
                     </div>
                     <div class="col p-0"><strong>{{ cart.product_price }} $</strong></div>
                     <div class="col p-0">
-                        <a href="{% url "cart:cart_remove" cart.id %}" class="remove-from-cart" data-cart-id="">
-                            <img class="mx-1" src= {% static 'deps/icons/trash3-fill.svg' %}
+                        <a href="{% url 'carts:cart_remove' %}" class="remove-from-cart" data-cart-id="{{ cart.id }}">
+                            <img class="mx-1" src="{% static 'deps/icons/trash3-fill.svg' %}"
                                 alt="Catalog Icon" width="16" height="16">
                         </a>
                     </div>
@@ -37,9 +46,26 @@
         </ul>
     {% endfor %}
 </div>
+{% if carts.total_quantity %}
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
-        <p class="float-left">Підсумок <strong>{{ carts.total_quantity }}</strong> товару на сумму</p>
-        <h4 class="float-left"><strong>{{ carts.total_price }} грн</strong></h4>
+        <div class="row">
+            <div class="col-8">
+                <p class="float-left">Підсумок <strong>{{ carts.total_quantity }}</strong> товару на сумму</p>
+                <h4 class="float-left"><strong>{{ carts.total_price }} грн</strong></h4>
+            </div>
+            <div class="col-4 order-button-container">
+                <a class="btn btn-dark" href="#">
+                    Оформити замовлення
+                </a>
+            </div>
+        </div>
     </div>
 </div>
+{% else %}
+<div class="card mb-3 shadow-lg">
+    <div class="card-footer">
+        <h4 class="text-center">Кошик порожній</h4>
+    </div>
+</div>
+{% endif %}
