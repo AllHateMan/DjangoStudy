@@ -18,9 +18,11 @@
                         {% include "includes/includet_cart.html" %}
                         <!-- Закончилась разметка корзины -->
                     </div>
-                    <a class="btn btn-dark" href="../orders/create_order.html">
-                        Оформить заказ
-                    </a>
+                    {% if carts %}
+                        <a class="btn btn-dark" href="#">
+                        Сформувати замовлення
+                        </a>
+                    {% endif %}
                 </div>
             </div>
         </div>

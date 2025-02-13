@@ -6,21 +6,21 @@
     <div class="row">
         <div class="container mt-5">
             <div class="row">
-                <!-- Профиль с данными пользователя -->
+                <!-- Профіль з даними користувача -->
                 <div class="col-md-5">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 class="text-center mb-4">Профиль пользователя</h3>
+                        <h3 class="text-center mb-4">Профіль користувача</h3>
                         <form action="{% url 'user:profile' %}" method="post" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-12 mb-3 text-center">
                                     {% if user.image %}
                                     <img src="{{ user.image.url }}"
-                                    alt="Аватар пользователя" class="img-fluid rounded-circle"
+                                    alt="Аватар користувача" class="img-fluid rounded-circle"
                                     style="max-width: 150px;">
                                     {% else %}
                                     <img src="{% static 'deps/images/baseavatar.jpg' %}"
-                                    alt="Аватар пользователя" class="img-fluid rounded-circle"
+                                    alt="Аватар користувача" class="img-fluid rounded-circle"
                                     style="max-width: 150px;">
                                     {% endif %}
                                     {% if form.image.errors %}
@@ -32,9 +32,9 @@
                                     name="image" accept="image/*">
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label for="id_firstName" class="form-label">Имя*</label>
+                                    <label for="id_firstName" class="form-label">Ім'я*</label>
                                     <input type="text" class="form-control" id="id_firstName" name="first_name"
-                                        placeholder="Введите ваше имя" value="{{ form.first_name.value }}" required>
+                                        placeholder="Введіть ваше ім'я" value="{{ form.first_name.value }}" required>
                                     {% if form.first_name.errors %}
                                         <div class='alert alert-danger mt-2 alert-dismissible fade show' role='alert'>
                                         {{ form.first_name.errors }}
@@ -42,9 +42,9 @@
                                     {% endif %}
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label for="id_lastName" class="form-label">Фамилия*</label>
+                                    <label for="id_lastName" class="form-label">Прізвище*</label>
                                     <input type="text" class="form-control" id="id_lastName" name="last_name"
-                                        placeholder="Введите вашу фамилию" value="{{ form.last_name.value }}" required>
+                                        placeholder="Введіть ваше прізвище" value="{{ form.last_name.value }}" required>
                                     {% if form.last_name.errors %}
                                         <div class='alert alert-danger mt-2 alert-dismissible fade show' role='alert'>
                                         {{ form.last_name.errors }}
@@ -52,9 +52,9 @@
                                     {% endif %}
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label for="id_username" class="form-label">Имя пользователя*</label>
+                                    <label for="id_username" class="form-label">Ім'я користувача*</label>
                                     <input type="text" class="form-control" id="id_username" name="username"
-                                        placeholder="Введите ваше имя пользователя" value="{{ form.username.value }}" required>
+                                        placeholder="Введіть ваше ім'я користувача" value="{{ form.username.value }}" required>
                                 </div>
                                     {% if form.username.errors %}
                                         <div class='alert alert-danger mt-2 alert-dismissible fade show' role='alert'>
@@ -64,7 +64,7 @@
                                 <div class="col-md-12 mb-3">
                                     <label for="id_email" class="form-label">Email*</label>
                                     <input type="email" class="form-control" id="id_email" name="email"
-                                        placeholder="Введите ваш email *youremail@example.com" value="{{ form.email.value }}"
+                                        placeholder="Введіть ваш email *youremail@example.com" value="{{ form.email.value }}"
                                         required>
                                     {% if form.email.errors %}
                                         <div class='alert alert-danger mt-2 alert-dismissible fade show' role='alert'>
@@ -73,36 +73,38 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-dark">Сохранить</button>
+                            <button type="submit" class="btn btn-dark">Зберегти</button>
                         </form>
                     </div>
                 </div>
-                <!-- Корзина -->
+                <!-- Кошик -->
                 {% users_carts request as carts %}
                 <div class="col-md-7">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 class="text-center mb-4">Корзина</h3>
+                        <h3 class="text-center mb-4">Кошик</h3>
                         <div class="container" id="cart-items-container">
-                            <!-- Разметка корзины -->
+                            <!-- Розмітка кошика -->
                             {% include "includes/includet_cart.html" %}
-                            <!-- Закончилась разметка корзины -->
+                            <!-- Закінчилась розмітка кошика -->
                         </div>
-                        <a class="btn btn-dark" href="../orders/create_order.html">
-                            Оформить заказ
-                        </a>
+                        {% if carts %}
+                            <a class="btn btn-dark" href="#">
+                                Сформувати замовлення
+                            </a>
+                        {% endif %}
                     </div>
                 </div>
-                <!-- Оформленные заказы -->
+                <!-- Оформлені замовлення -->
                 <div class="col-md-12">
                     <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
-                        <h3 class="text-center mb-4">Мои заказы</h3>
-                        <!-- Разметка заказов -->
+                        <h3 class="text-center mb-4">Мої замовлення</h3>
+                        <!-- Розмітка замовлень -->
                         <div class="container">
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading1">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
-                                            Заказ № 256 - 09 сентября 2023 9:04 | Статус:<strong class="mx-2"> В обработке</strong>
+                                            Замовлення № 256 - 09 вересня 2023 9:04 | Статус:<strong class="mx-2"> В обробці</strong>
                                         </button>
                                     </h2>
                                     <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionExample">
@@ -111,25 +113,23 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Товар</th>
-                                                        <th>Количество</th>
-                                                        <th>Цена</th>
-                                                        <th>Общая стоимость</th>
+                                                        <th>Кількість</th>
+                                                        <th>Ціна</th>
+                                                        <th>Загальна вартість</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><a class="text-white" href="#">Комплект стол и три стула</a></td>
+                                                        <td><a class="text-white" href="#">Комплект стіл та три стільці</a></td>
                                                         <td>1</td>
-                                                        <td>255.00 $</td>
-                                                        <td>255.00 $</td>
-                                                        
+                                                        <td>255.00 грн</td>
+                                                        <td>255.00 грн</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <div class="d-flex justify-content-between">
-                                                <p><strong>Итого:</strong></p>
-                                                <p><strong>255.00 $</strong></p>
-
+                                                <p><strong>Разом:</strong></p>
+                                                <p><strong>255.00 грн</strong></p>
                                             </div>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading2">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                                            Заказ № 248 - 01 августа 2023 11:28 | Статус: <strong>Получен</strong>
+                                            Замовлення № 248 - 01 серпня 2023 11:28 | Статус: <strong>Отримано</strong>
                                         </button>
                                     </h2>
                                     <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionExample">
@@ -146,18 +146,17 @@
                                                 <thead>
                                                     <tr>
                                                         <th>Товар</th>
-                                                        <th>Количество</th>
-                                                        <th>Цена</th>
-                                                        <th>Общая стоимость</th>
+                                                        <th>Кількість</th>
+                                                        <th>Ціна</th>
+                                                        <th>Загальна вартість</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><a class="text-white" href="#">Стул офисный</a></td>
+                                                        <td><a class="text-white" href="#">Стілець офісний</a></td>
                                                         <td>2</td>
-                                                        <td>30.00 $</td>
-                                                        <td>60.00 $</td>
-                                                        
+                                                        <td>30.00 грн</td>
+                                                        <td>60.00 грн</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -166,7 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Закончилась разметка заказов -->
+                        <!-- Закінчилась розмітка замовлень -->
                     </div>
                 </div>
             </div>
