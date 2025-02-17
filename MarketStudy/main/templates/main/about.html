@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load carts_tags %}
 {% block modal_cart %}
 {% include "includes/cart_button.html" %}
 {% endblock modal_cart %}
 
 {% block content %}
 {% user_cart request as carts %}
-    <div class="mt-5 pt-5 bg-info-subtle">
+    <div class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
         <h1>{{ content }}</h1>
         <p class="about">{{ text_on_page }}</p>
     </div>

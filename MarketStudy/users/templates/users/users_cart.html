@@ -2,9 +2,6 @@
 {% load static %}
 {% load goods_tags %}
 {% load carts_tags %}
-{% block modal_cart %}
-{% include "includes/cart_button.html" %}
-{% endblock %}
 
 {% block content %}
 {% user_cart request as carts %}
@@ -17,6 +14,13 @@
                         <!-- Разметка корзины -->
                         {% include "includes/includet_cart.html" %}
                         <!-- Закончилась разметка корзины -->
+                        {% if carts %}
+                        <div class="col-4 order-button-container">
+                            <a class="btn btn-dark" href="{% url 'orders:create_order' %}">
+                                Оформити замовлення
+                            </a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

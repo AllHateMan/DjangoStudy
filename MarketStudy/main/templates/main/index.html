@@ -7,7 +7,9 @@
     <!-- Контент на странице -->
 {% block content %}
 {% user_cart request as carts %}
-    <h1 class="mt-5 pt-5">{{ content }}</h1>
+    <h1 class=" bg-white p-4 mb-4 mx-2 rounded custom-shadow">
+        {{ content }}
+    </h1>
 {% endblock content %}
 
 {% block footer %}

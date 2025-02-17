@@ -29,7 +29,13 @@
                     {% include "includes/includet_cart.html" %}
                     <!-- Закончилась разметка корзины -->
                 </div>
-                
+                {% if carts %}
+                <div class="col-4 order-button-container">
+                    <a class="btn btn-dark" href="{% url 'orders:create_order' %}">
+                        Оформити замовлення
+                    </a>
+                </div>
+                {% endif %}
                 
             </div>
         </div>
