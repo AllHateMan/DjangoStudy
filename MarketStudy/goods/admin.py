@@ -12,8 +12,8 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
-    list_display = ('name', 'price', 'discount', 'category')
-    list_editable = ('price', 'discount')
+    list_display = ('name', 'price', 'discount', 'category', 'quantity')
+    list_editable = ('price', 'discount', 'quantity')
     search_fields = ('name', 'description')
     list_per_page = 10
     list_max_show_all = 100

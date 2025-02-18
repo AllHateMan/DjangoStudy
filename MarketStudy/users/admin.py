@@ -1,4 +1,5 @@
 from django.contrib import admin
+from orders.admin import OrderTabulareAdmin
 from users.models import User
 from carts.admin import CartTabInline
 
@@ -10,5 +11,5 @@ class UserAdmin(admin.ModelAdmin):
     list_per_page = 10
     list_max_show_all = 100
 
-    inlines = [CartTabInline]
+    inlines = [CartTabInline, OrderTabulareAdmin]
 

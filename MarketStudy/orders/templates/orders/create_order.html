@@ -66,15 +66,15 @@
                             <label for="delivery" class="form-label">Спосіб доставки: </label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requires_delivery"
-                                    id="id_requires_delivery" value="1" checked>
-                                <label class="form-check-label" for="id_requires_delivery">Потрібна
+                                    id="requires_delivery_yes" value="True" checked>
+                                <label class="form-check-label" for="requires_delivery_yes">Потрібна
                                     доставка</label>
                             </div>
 
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requires_delivery"
-                                    id="id_requires_delivery" value="0">
-                                <label class="form-check-label" for="id_requires_delivery">Самовивіз</label>
+                                    id="requires_delivery_no" value="False">
+                                <label class="form-check-label" for="requires_delivery_no">Самовивіз</label>
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                                 name="delivery_address" 
                                 value="{% if form.delivery_address.value %}{{ form.delivery_address.value }}{% endif %}"
                                 rows="2"></textarea>
-                                {% if form.delivery_address.errors %}
+                                    {% if form.delivery_address.errors %}
                                     <div class='alert alert-danger mt-2 alert-dismissible fade show' role='alert'>
                                     {{ form.delivery_address.errors }}
                                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Закрити'></button>
