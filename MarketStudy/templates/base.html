@@ -70,8 +70,8 @@
                     </li>
                     {% endif %}
                     </ul>
-                    <form class="d-flex" role="search" action='{% url "catalog:search" %}' method="get">
-                        <input class="form-control me-2" type="search" name="q" placeholder="" aria-label="Пошук">
+                    <form class="d-flex" role="search" action="{% url 'catalog:search' %}" method="GET">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Пошук..." aria-label="Пошук">
                         <button class="btn btn-outline-success text-white" type="submit">Пошук</button>
                     </form>
                 </div>

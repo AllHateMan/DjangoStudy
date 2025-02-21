@@ -19,7 +19,7 @@
                 Фильтры
             </button>
     
-            <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}"{% endif %} method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+            <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == 'on' %} checked {% endif %}>
                     {% if request.GET.q %}
@@ -124,20 +124,20 @@
 
     <ul class="pagination justify-content-center my-4">
         <div class="custom-shadow d-flex">
-            <li class="page-item {% if not product.has_previous %} disabled {% endif %}">
-              <a class="page-link" href="{% if product.has_previous %}
-              ?{% change_params page=product.previous_page_number%}
+            <li class="page-item {% if not page_obj.has_previous %} disabled {% endif %}">
+              <a class="page-link" href="{% if page_obj.has_previous %}
+              ?{% change_params page=page_obj.previous_page_number%}
               {% else %} # {% endif %}">Назад</a>
             </li>
-            {% for page in product.paginator.page_range %}
-            {% if page >= product.number|add:-2 and page <= product.number|add:2 %}
-            <li class="page-item {% if product.number == page %}active{% endif %}"><a class="page-link" 
+            {% for page in page_obj.paginator.page_range %}
+            {% if page >= page_obj.number|add:-2 and page <= page_obj.number|add:2 %}
+            <li class="page-item {% if page_obj.number == page %}active{% endif %}"><a class="page-link" 
                 href="?{% change_params page=page%}">{{ page }}</a></li>
             {% endif %}
             {% endfor %}
-            <li class="page-item {% if not product.has_next %} disabled {% endif %}">
-              <a class="page-link" href="{% if product.has_next %}
-              ?{% change_params page=product.next_page_number%}
+            <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
+              <a class="page-link" href="{% if page_obj.has_next %}
+              ?{% change_params page=page_obj.next_page_number%}
               {% else %} # {% endif %}">Вперед</a>
             </li>
         </div>
