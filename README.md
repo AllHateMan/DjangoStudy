@@ -1,8 +1,17 @@
 # Practice Django Project
 
+Technologies used: 
+- Python (Django)
+Function based at the start and than was rewrited to Class-based view
+- PosgreSql
+Used one-to-many, one-to-one and many-to-many realations
+Worked with db migraations and created complex db shema
+- Frontend
+  - Html, Css, Bootstrap
+  - JavaScript (JQuery) for inputs error handling on fronted 
+
 ![image](https://github.com/user-attachments/assets/be41cced-76ae-4e4e-878e-01b656cc0c3a)
 
-Based on [PythonHubStudio Youtube tutorial](https://www.youtube.com/watch?v=w-ITLbRfhnA&ab_channel=PythonHubStudio) but with customization during process.
 
 ## Avaible features:
 
